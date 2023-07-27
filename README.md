@@ -88,7 +88,7 @@ node index.js --code (jika ingin menggunakan otp atau 1 hp)
 ----------
 
 <p align="center">
-  <a href="https://youtu.be/RsQf-ft7qpM"><img src="https://ibb.co/X2qmq7Y" />
+  <a href="https://youtu.be/RsQf-ft7qpM"><img src="https://telegra.ph/Aaa-07-27-15" />
 </p>
 
 ## Donate
@@ -101,5 +101,5 @@ node index.js --code (jika ingin menggunakan otp atau 1 hp)
 # Thanks to
 <a href="https://github.com/adiwajshing"><img src="https://github.com/adiwajshing.png?size=100" width="100" height="100"></a> | [![Irfan](https://github.com/rtwone.png?size=100)](https://github.com/rtwone) | [![Yoga](https://github.com/YogGanz.png?size=100)](https://github.com/YogGanz) | [![Caliph](http://github.com/caliphdev.png?size=100)](http://github.com/caliphdev) | [![Handoko](http://github.com/handoko19.png?size=100)](http://github.com/handoko19) | [![Arthur](http://github.com/arthur-md.png?size=100)](http://github.com/arthur-md) | [![Riy](http://github.com/riycoders.png?size=100)](http://github.com/riycoders)
 ----|----|----|----|----|----|----
-[Adiwajshing](https://github.com/adiwajshing) | [Irfan](https://github.com/rtwone) | [Yoga](https://github.com/YogGanz) | [Caliph](https://github.com/caliphdev) | [Handoko](https://github.com/handoko19) | [Arthur](https://github.com/arthur-md) | [Riy](https://github.com/riycoders)
+[Adiwajshing](https://github.com/whiskeysockets) | [Irfan](https://github.com/rtwone) | [Yoga](https://github.com/YogGanz) | [Caliph](https://github.com/caliphdev) | [Handoko](https://github.com/handoko19) | [Arthur](https://github.com/arthur-md) | [Riy](https://github.com/riycoders)
 Owner of Baileys | Owner of Chitanda | My Inspiration | Owner of Caliph api | For Help | Pesatir | Owner of Yoshino
