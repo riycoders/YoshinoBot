@@ -83,12 +83,12 @@ node index.js --code (jika ingin menggunakan otp atau 1 hp)
 
 ## ```HOW TO DEPLOY```
 
-[`Click Here For Tutorial`](https://youtu.be/RsQf-ft7qpM)<br>
+[`Click Here For Tutorial`](https://youtu.be/lTNFMkLxs4U)<br>
 
 ----------
 
 <p align="center">
-  <a href="https://youtu.be/RsQf-ft7qpM"><img src="https://telegra.ph/Aaa-07-27-15" />
+  <a href="https://youtu.be/lTNFMkLxs4U"><img src="https://telegra.ph/file/83c1fac7858267a251763.jpg" />
 </p>
 
 ## Donate
