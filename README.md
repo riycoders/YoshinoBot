@@ -52,12 +52,21 @@ node index.js --code (jika ingin menggunakan otp atau 1 hp)
 `./config.json`
 ```ts
 {
-{
   "ownerNumber": "62xxx@s.whatsapp.net",
   "ownerName": "rc",
   "botName": "Yoshino Bot",
   "packname": "follow",
   "author": "@riycoders",
+  "pathimg": "./media/yoshino.jpg",
+  "apikey": {
+    "caliph": "",
+    "miko": ""
+  },
+  "hmm": {
+    "yt": "https://youtube.com/@riycoders",
+    "ig": "https://instagram.com/riycoders",
+    "linkmenu": "https://chat.whatsapp.com/KShSydBXuPBIx0eeWgl7gY"
+  },
   "donasi": {
 	"dana": "081575886399",
 	"gopay": "081575886399"
