@@ -569,7 +569,7 @@ module.exports = async(conn, msg, m, setting, store, welcome) => {
                            },
                            ],
                            }
-                           const post = await axios.post("https://bot.lyo.su/quote/generate",
+                           const post = await axios.post("https://server-id.caliph.my.id/generate",
                            jsonnya,{
                              headers: { "Content-Type": "application/json"},
                            })
