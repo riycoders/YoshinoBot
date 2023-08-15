@@ -29,7 +29,7 @@
     "form-data": "^4.0.0",
     "fs": "0.0.1-security",
     "g-i-s": "^2.1.6",
-    "jimp": "^0.22.10",
+    "jimp": "^0.16.1",
     "jsdom": "^19.0.0",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.34",
