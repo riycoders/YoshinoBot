@@ -1,22 +1,22 @@
 {
-  "ownerNumber": "62xxx@s.whatsapp.net",
-  "ownerName": "rc",
-  "botName": "Yoshino Bot",
-  "packname": "follow",
-  "author": "@riycoders",
+  "ownerNumber": "6281399315409@s.whatsapp.net",
+  "ownerName": "Tecno",
+  "botName": "Xyanz Bot",
+  "packname": "Made in",
+  "author": "Vice Chairman",
   "pathimg": "./media/yoshino.jpg",
   "apikey": {
     "caliph": "caliphkey",
     "miko": "Mikokey"
   },
   "hmm": {
-    "yt": "https://youtube.com/@riycoders",
-    "ig": "https://instagram.com/riycoders",
-    "linkmenu": "https://chat.whatsapp.com/KShSydBXuPBIx0eeWgl7gY"
+    "yt": "-",
+    "ig": "-",
+    "linkmenu": "-"
   },
   "donasi": {
-	"dana": "081575886399",
-	"gopay": "081575886399"
+	"dana": "free",
+	"gopay": "-"
   },
   "gamewaktu": 90,
   "limitCount": 25,
