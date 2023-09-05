@@ -59,7 +59,7 @@ node index.js --code (jika ingin menggunakan otp)
   "author": "@riycoders",
   "pathimg": "./media/yoshino.jpg",
   "apikey": {
-    "caliph": "caliphkey"
+    "caliph": ""
   },
   "hmm": {
     "yt": "https://youtube.com/@riycoders",
