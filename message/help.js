@@ -43,6 +43,9 @@ ${prefix}tovid
 ${prefix}tomp3
 ${prefix}ttp
 ${prefix}emojimix
+${prefix}ytmp4
+${prefix}ytmp3
+${prefix}play
 ${prefix}nulis
 ${prefix}qc
  
