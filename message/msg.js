@@ -12,7 +12,7 @@ const {
 const { color, bgcolor } = require('../lib/color')
 const { generateProfilePicture, getBuffer, fetchJson, fetchText, getRandom, getGroupAdmins, runtime, sleep, makeid } = require("../lib/myfunc");
 const { webp2mp4File } = require("../lib/convert")
-const { pinterest } = require("../lib/pinterest")
+const { pinterest, yta, ytv } = require("../lib/pinterest")
 const { isLimit, limitAdd, getLimit, giveLimit, addBalance, kurangBalance, getBalance, isGame, gameAdd, givegame, cekGLimit } = require("../lib/limit");
 const { addPlayGame, getJawabanGame, isPlayGame, cekWaktuGame, getGamePosi } = require("../lib/game");
 const { isTicTacToe, getPosTic } = require("../lib/tictactoe");
@@ -26,6 +26,7 @@ const util = require("util");
 const { exec, spawn } = require("child_process");
 const ffmpeg = require("fluent-ffmpeg");
 const fetch = require("node-fetch");
+const yts = require("yt-search");
 const axios = require("axios");
 const speed = require("performance-now");
 const request = require("request");
@@ -151,25 +152,29 @@ module.exports = async(conn, msg, m, setting, store, welcome) => {
              return path_file
            }
         }
-		const sendFileFromUrl = async (from, url, caption, options = {}) => {
-		    let mime = '';
-		    let res = await axios.head(url)
-		    mime = res.headerd["content-type"]
-		    let type = mime.split("/")[0]+"Message"
-		    if (mime.split("/")[0] === "image") {
-		       var img = await getBuffer(url)
-		       return conn.sendMessage(from, { image: img, caption: caption }, options)
-		    } else if (mime.split("/")[0] === "video") {
-		       var vid = await getBuffer(url)
-		       return conn.sendMessage(from, { video: vid, caption: caption }, options)
-		    } else if (mime.split("/")[0] === "audio") {
-		       var aud = await getBuffer(url)
-		       return conn.sendMessage(from, { audio: aud, mimetype: 'audio/mp3' }, options)
-		    } else {
-		       var doc = await getBuffer(url)
-		       return conn.sendMessage(from, { document: doc, mimetype: mime, caption: caption }, options)
-		    }
-		}
+		const sendFileFromUrl =async (from, url, caption, options ={}, quoted ) => {
+            let res = await axios.head(url)
+            let mime = res.headers['content-type']
+            if (mime.split("/")[1] === "gif") {
+                return await conn.sendMessage(from, { video: { url : await convertToVideo(url, '.gif') }, caption: caption, gifPlayback: true}, {quoted: msg}, options)
+                }
+            let type = mime.split("/")[0]+"Message"
+            if(mime.split("/")[0] === "image"){
+                return conn.sendMessage(from, { image: await getBuffer(url), caption: caption, height: 3264, width: 2448}, {quoted: msg }, options)
+            } else if(mime.split("/")[0] === "video"){
+                return conn.sendMessage(from, { video: await getBuffer(url), caption: caption, height: 848, width: 848}, {quoted: msg}, options)
+            } else if(mime.split("/")[0] === "audio"){
+                return conn.sendMessage(from, { audio: await getBuffer(url), caption: caption, mimetype: 'audio/mpeg'}, {quoted: msg}, options)
+            } else {
+                let a = await getBuffer(url)
+                let b = './temp/' + getRandom()
+                let c = fs.writeFileSync(b, a)
+                let d = await mimes.fromFile(b)
+                let messege = await conn.sendMessage(from, { document: { url: b }, mimetype: d.mime, fileName: caption}, {quoted: msg}, options)
+                fs.unlinkSync(b)
+                return messege
+            }
+        }
 		const isUrl = (url) => {
 			return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/, 'gi'))
         }
@@ -721,6 +726,82 @@ module.exports = async(conn, msg, m, setting, store, welcome) => {
                      limitAdd(sender, limit)
                    }).catch(() => reply(mess.error.api))
                    break
+				   case prefix+'ytmp4': case prefix+'mp4':
+				 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+				if (args.length < 2) return reply(`Kirim perintah ${command} link`)
+                   if (!isUrl(args[1])) return reply(mess.error.Iv)
+                   if (!args[1].includes('youtu.be') && !args[1].includes('youtube.com')) return reply(mess.error.Iv)
+                  reply(mess.wait)
+                   args[1] = args[1].includes('shorts') ? args[1].replace('https://youtube.com/shorts/', 'https://youtu.be/') : args[1]
+                  ytv(args[1]).then(async (data) => {
+                   const txt = `┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
+┆ *YOUTUBE DOWNLOADER*
+└┈┈┈┈┈┈┈┈┈┈┈⌣ ┈̥-̶̯͡..̷̴✽̶⌣ ✽̶
+
+*Data Berhasil Didapatkan!*
+\`\`\`▢ Title : ${data.title}\`\`\`
+\`\`\`▢ Channel : ${data.channel}\`\`\`
+\`\`\`▢ Size  : ${data.size}\`\`\`
+\`\`\`▢ Viewer : ${data.view}\`\`\`
+\`\`\`▢ Deskripsi : ${data.desc}\`\`\`
+
+_Silahkan tunggu media sedang dikirim mungkin butuh beberapa menit_`
+                    sendFileFromUrl(from, data.thumb, txt, msg)
+					sendFileFromUrl(from, data.result, '', msg)
+                 limitAdd(sender, limit)
+				}).catch(() => reply(mess.error.api))
+                   break
+				    case prefix+'play':
+		 case prefix+'song':{
+			  if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+                if (!q) return reply(`contoh penggunaan ${command} your in april `)
+                reply(mess.wait)
+			let link = (await yts(q))
+                yta(link.videos[0].url).then(async (data) => {
+                     const txt = `┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
+┆ *YOUTUBE DOWNLOADER*
+└┈┈┈┈┈┈┈┈┈┈┈⌣ ┈̥-̶̯͡..̷̴✽̶⌣ ✽̶
+
+*Data Berhasil Didapatkan!*
+\`\`\`▢ Title : ${data.title}\`\`\`
+\`\`\`▢ Channel : ${data.username}\`\`\`
+\`\`\`▢ Size  : ${data.size}\`\`\`
+\`\`\`▢ type : ${data.ftype}\`\`\`
+\`\`\`▢ Link : ${link.videos[0].url}\`\`\`
+
+_Silahkan tunggu media sedang dikirim mungkin butuh beberapa menit_`
+                    sendFileFromUrl(from, data.thumbnail, txt, msg)
+                    sendFileFromUrl(from, data.download_url, '', msg)
+                limitAdd(sender, limit)
+			   })
+                .catch((err) => {
+                    reply(mess.error.api)
+		})}
+            break
+				   case prefix+'ytmp3': case prefix+'mp3':
+				 if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+				if (args.length < 2) return reply(`Kirim perintah ${command} link`)
+                   if (!isUrl(args[1])) return reply(mess.error.Iv)
+                   if (!args[1].includes('youtu.be') && !args[1].includes('youtube.com')) return reply(mess.error.Iv)
+                  reply(mess.wait)
+                   args[1] = args[1].includes('shorts') ? args[1].replace('https://youtube.com/shorts/', 'https://youtu.be/') : args[1]
+                  yta(args[1]).then(async (data) => {
+                   const txt = `┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
+┆ *YOUTUBE DOWNLOADER*
+└┈┈┈┈┈┈┈┈┈┈┈⌣ ┈̥-̶̯͡..̷̴✽̶⌣ ✽̶
+
+*Data Berhasil Didapatkan!*
+\`\`\`▢ Title : ${data.title}\`\`\`
+\`\`\`▢ Channel : ${data.username}\`\`\`
+\`\`\`▢ Size  : ${data.size}\`\`\`
+\`\`\`▢ type : ${data.ftype}\`\`\`
+
+_Silahkan tunggu media sedang dikirim mungkin butuh beberapa menit_`
+                    sendFileFromUrl(from, data.thumbnail, txt, msg)
+					sendFileFromUrl(from, data.download_url, '', msg)
+                 limitAdd(sender, limit)
+				}).catch(() => reply(mess.error.api))
+                   break
 			// Owner Menu
 			case prefix+'exif':
 			    if (!isOwner) return reply(mess.OnlyOwner)
@@ -821,7 +902,7 @@ module.exports = async(conn, msg, m, setting, store, welcome) => {
                    reply(mess.wait)
                    var query = ["cecan hd","cecan indo","cewe cantik", "cewe aesthetic", "cecan aesthetic"]
                    var data = await pinterest(pickRandom(query))
-                   conn.sendMessage(from, { caption: "Random Cewe Cantik", image: { url: pickRandom(data) }}, { quoted: msg })
+                   conn.sendMessage(from, { caption: "Random Cewe Cantik", image: { url: pickRandom(data.result) }}, { quoted: msg })
                    limitAdd(sender, limit)
                    break
                 case prefix+'cogan': case prefix+'cowok':
@@ -829,7 +910,7 @@ module.exports = async(conn, msg, m, setting, store, welcome) => {
                    reply(mess.wait)
                    var query = ["cogan hd","cogan indo","cowo ganteng","handsome boy","hot boy","oppa","cowo aesthetic","cogan aesthetic"]
                    var data = await pinterest(pickRandom(query))
-                   conn.sendMessage(from, { caption: "Random Cowo Ganteng", image: { url: pickRandom(data) }}, { quoted: msg })
+                   conn.sendMessage(from, { caption: "Random Cowo Ganteng", image: { url: pickRandom(data.result ) }}, { quoted: msg })
                    limitAdd(sender, limit)
                    break
                 case prefix+'waifu':
@@ -851,14 +932,14 @@ module.exports = async(conn, msg, m, setting, store, welcome) => {
                      if (q.includes('--')) {
                        if (data.length < jumlah) {
                          jumlah = data.length
-                         reply(`Hanya ditemukan ${data.length}, foto segera dikirim`)
+                         reply(`Hanya ditemukan ${data.result.length}, foto segera dikirim`)
                        }
                        for (let i = 0; i < jumlah; i++) {
-                         conn.sendMessage(from, { image: { url: data[i] }})
+                         conn.sendMessage(from, { image: { url: data.result[i] }})
                        }
                        limitAdd(sender, limit)
                      } else {
-                       conn.sendMessage(from, { caption: `Hasil pencarian dari ${q}`, image: { url: pickRandom(data) }}, { quoted: msg })
+                       conn.sendMessage(from, { caption: `Hasil pencarian dari ${q}`, image: { url: pickRandom(data.result) }}, { quoted: msg })
                        limitAdd(sender, limit)
                      }
                    })
