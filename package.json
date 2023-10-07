@@ -1,0 +1,44 @@
+{
+  "name": "yoshino-md",
+  "version": "1.0.0",
+  "description": "Simple whatsapp bot with multi device.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "riycoders",
+  "license": "MIT",
+  "dependencies": {
+    "@adiwajshing/keyed-db": "^0.2.4",
+    "@whiskeysockets/baileys": "latest",
+    "awesome-phonenumber": "^2.64.0",
+    "axios": "^0.24.0",
+    "chalk": "^4.1.2",
+    "clui": "^0.3.6",
+    "discord.js": "^14.13.0",
+    "fetch": "^1.1.0",
+    "figlet": "^1.5.2",
+    "file-type": "^16.5.3",
+    "fluent-ffmpeg": "^2.1.2",
+    "form-data": "^4.0.0",
+    "fs": "0.0.1-security",
+    "g-i-s": "^2.1.6",
+    "jimp": "^0.16.1",
+    "jsdom": "^19.0.0",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.34",
+    "node-fetch": "^2.6.4",
+    "node-os-utils": "^1.3.6",
+    "node-scrapy": "^0.5.0",
+    "node-webpmux": "^3.1.1",
+    "os": "^0.1.2",
+    "parse-ms": "^2.1.0",
+    "pino": "^7.2.0",
+    "qrcode-terminal": "^0.12.0",
+    "util": "^0.12.4"
+  }
+}
