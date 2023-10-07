@@ -52,15 +52,15 @@ node index.js --code (jika ingin menggunakan otp atau 1 hp)
 `./config.json`
 ```ts
 {
-  "ownerNumber": "62xxx@s.whatsapp.net",
+  "ownerNumber": "6281575886399@s.whatsapp.net",
+  "pairingNumber": "masukin nomer yang ingin dijadikan bot",
   "ownerName": "rc",
   "botName": "Yoshino Bot",
   "packname": "follow",
   "author": "@riycoders",
   "pathimg": "./media/yoshino.jpg",
   "apikey": {
-    "caliph": "",
-    "miko": ""
+    "xcode": "ambil apikey disini : https://api.xcodeteam.xyz"
   },
   "hmm": {
     "yt": "https://youtube.com/@riycoders",
@@ -99,7 +99,7 @@ node index.js --code (jika ingin menggunakan otp atau 1 hp)
 - [Group](https://chat.whatsapp.com/KShSydBXuPBIx0eeWgl7gY)
 
 # Thanks to
-<a href="https://github.com/whiskeysockets"><img src="https://github.com/whiskeysockets.png?size=100" width="100" height="100"></a> | [![Irfan](https://github.com/rtwone.png?size=100)](https://github.com/rtwone) | [![Yoga](https://github.com/YogGanz.png?size=100)](https://github.com/YogGanz) | [![Caliph](http://github.com/caliphdev.png?size=100)](http://github.com/caliphdev) | [![Handoko](http://github.com/handoko19.png?size=100)](http://github.com/handoko19) | [![Arthur](http://github.com/arthur-md.png?size=100)](http://github.com/arthur-md) | [![Riy](http://github.com/riycoders.png?size=100)](http://github.com/riycoders)
+<a href="https://github.com/whiskeysockets"><img src="https://github.com/whiskeysockets.png?size=100" width="100" height="100"></a> | [![Irfan](https://github.com/rtwone.png?size=100)](https://github.com/rtwone) | [![Yoga](https://github.com/YogGanz.png?size=100)](https://github.com/YogGanz) | [![Faiz](http://github.com/Faizx.png?size=100)](http://github.com/caliphdev) | [![Handoko](http://github.com/handoko19.png?size=100)](http://github.com/handoko19) | [![Arthur](http://github.com/arthur-md.png?size=100)](http://github.com/arthur-md) | [![Riy](http://github.com/riycoders.png?size=100)](http://github.com/riycoders)
 ----|----|----|----|----|----|----
-[Whiskeysockets](https://github.com/whiskeysockets) | [Irfan](https://github.com/rtwone) | [Yoga](https://github.com/YogGanz) | [Caliph](https://github.com/caliphdev) | [Handoko](https://github.com/handoko19) | [Arthur](https://github.com/arthur-md) | [Riy](https://github.com/riycoders)
-Owner of Baileys | Owner of Chitanda | My Inspiration | Owner of Caliph api | For Help | Pesatir | Owner of Yoshino
+[Whiskeysockets](https://github.com/whiskeysockets) | [Irfan](https://github.com/rtwone) | [Yoga](https://github.com/YogGanz) | [Faiz](https://github.com/Paizx) | [Handoko](https://github.com/handoko19) | [Arthur](https://github.com/arthur-md) | [Riy](https://github.com/riycoders)
+Owner of Baileys | Owner of Chitanda | My Inspiration | For Help | For Help | Pesatir | Owner of Yoshino
