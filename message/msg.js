@@ -115,7 +115,7 @@ module.exports = async(conn, msg, m, setting, store, welcome) => {
 		const content = JSON.stringify(msg.message)
 		const from = msg.key.remoteJid
 		const chats = (type === 'conversation' && msg.message.conversation) ? msg.message.conversation : (type === 'imageMessage') && msg.message.imageMessage.caption ? msg.message.imageMessage.caption : (type === 'videoMessage') && msg.message.videoMessage.caption ? msg.message.videoMessage.caption : (type === 'extendedTextMessage') && msg.message.extendedTextMessage.text ? msg.message.extendedTextMessage.text : (type === 'buttonsResponseMessage') && quotedMsg.fromMe && msg.message.buttonsResponseMessage.selectedButtonId ? msg.message.buttonsResponseMessage.selectedButtonId : (type === 'templateButtonReplyMessage') && quotedMsg.fromMe && msg.message.templateButtonReplyMessage.selectedId ? msg.message.templateButtonReplyMessage.selectedId : (type === 'messageContextInfo') ? (msg.message.buttonsResponseMessage?.selectedButtonId || msg.message.listResponseMessage?.singleSelectReply.selectedRowId) : (type == 'listResponseMessage') && quotedMsg.fromMe && msg.message.listResponseMessage.singleSelectReply.selectedRowId ? msg.message.listResponseMessage.singleSelectReply.selectedRowId : ""
-        const toJSON = j => JSON.stringify(j, null,'\t')
+                const toJSON = j => JSON.stringify(j, null,'\t')
         
 
 		if (conn.multi) {
@@ -133,7 +133,7 @@ module.exports = async(conn, msg, m, setting, store, welcome) => {
 		const isCmd = command.startsWith(prefix)
 		const isGroup = msg.key.remoteJid.endsWith('@g.us')
 		const sender = isGroup ? (msg.key.participant ? msg.key.participant : msg.participant) : msg.key.remoteJid
-		const isOwner = conn.user.id.split(':')[0] + '@s.whatsapp.net' ? true : ownerNumber.includes(sender) ? true : false
+		const isOwner = ownerNumber.includes(sender)
 		const pushname = msg.pushName
 		const q = chats.slice(command.length + 1, chats.length)
 		const body = chats.startsWith(prefix) ? chats : ''
