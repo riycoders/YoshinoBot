@@ -1,22 +1,22 @@
 {
-  "ownerNumber": "6281575886399@s.whatsapp.net",
-  "pairingNumber": "masukin nomer yang ingin dijadikan bot",
-  "ownerName": "rc",
+  "ownerNumber": "6285960477878@s.whatsapp.net",
+  "pairingNumber": "6281380869485",
+  "ownerName": "Mahiru",
   "botName": "Yoshino Bot",
   "packname": "follow",
-  "author": "@riycoders",
+  "author": "@YoshinoChan",
   "pathimg": "./media/yoshino.jpg",
   "apikey": {
     "xcode": "ambil apikey disini : https://api.xcodeteam.xyz"
   },
   "hmm": {
-    "yt": "https://youtube.com/@riycoders",
-    "ig": "https://instagram.com/riycoders",
+    "yt": "xx",
+    "ig": "xx",
     "linkmenu": "https://chat.whatsapp.com/KShSydBXuPBIx0eeWgl7gY"
   },
   "donasi": {
-	"dana": "081575886399",
-	"gopay": "081575886399"
+	"dana": "xx",
+	"gopay": "xx"
   },
   "gamewaktu": 90,
   "limitCount": 25,
