@@ -1,9 +1,9 @@
 {
-  "ownerNumber": "6281575886399@s.whatsapp.net",
-  "pairingNumber": "masukin nomer yang ingin dijadikan bot",
-  "ownerName": "rc",
-  "botName": "Yoshino Bot",
-  "packname": "follow",
+  "ownerNumber": "6289697318010@s.whatsapp.net",
+  "pairingNumber": "6287867256195",
+  "ownerName": "Ardhita",
+  "botName": "Ardhita-Bot",
+  "packname": "Ardhita",
   "author": "@riycoders",
   "pathimg": "./media/yoshino.jpg",
   "apikey": {
@@ -15,8 +15,8 @@
     "linkmenu": "https://chat.whatsapp.com/KShSydBXuPBIx0eeWgl7gY"
   },
   "donasi": {
-	"dana": "081575886399",
-	"gopay": "081575886399"
+	"dana": "6289697318010",
+	"gopay": "-"
   },
   "gamewaktu": 90,
   "limitCount": 25,
